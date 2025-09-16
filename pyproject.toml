@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trademe-tinymcp"
+version = "0.1.0"
+description = "A simple MCP server for Trade Me API integration"
+authors = [
+    {name = "Developer", email = "developer@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.2.0",
+    "httpx>=0.25.0",
+    "trademe_sdk>=0.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+trademe_tinymcp_server = "trademe_tinymcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trademe_tinymcp"]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"

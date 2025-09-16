@@ -1,0 +1,1 @@
+- when i ask how to add the mcp server to claude, remind me to start claude from the virtual environment
